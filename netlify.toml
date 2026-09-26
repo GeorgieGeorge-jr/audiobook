@@ -1,0 +1,14 @@
+[build]
+  publish = "frontend"
+  functions = "netlify/functions"
+  command = ""
+
+[[redirects]]
+  from = "/api/voices"
+  to = "/.netlify/functions/voices"
+  status = 200
+
+[[redirects]]
+  from = "/api/tts"
+  to = "/.netlify/functions/tts"
+  status = 200
