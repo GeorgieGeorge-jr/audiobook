@@ -1,0 +1,248 @@
+:root {
+  --paper: #efe6d8;
+  --surface: #fffdf7;
+  --ink: #241b13;
+  --ink-soft: #5a4d3d;
+  --rule: #d8cbb4;
+  --burgundy: #6e2a35;
+  --burgundy-dark: #55212a;
+  --gold: #b4914f;
+  --focus: #2f6e5c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Inter", system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 56px 24px 96px;
+}
+
+.hero { margin-bottom: 40px; }
+
+.hero h1 {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 3rem;
+  font-weight: 600;
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+}
+
+.hero-sub {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  max-width: 46ch;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 28px;
+  margin-bottom: 24px;
+}
+
+.dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  padding: 32px 16px;
+  border: 1.5px dashed var(--gold);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.dropzone:hover,
+.dropzone:focus-within {
+  background: #f8f2e6;
+  border-color: var(--burgundy);
+}
+
+.dropzone-title {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.15rem;
+}
+
+.dropzone-sub {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.progress-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.progress-track,
+.book-progress-track {
+  flex: 1;
+  height: 4px;
+  background: var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill,
+.book-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--burgundy);
+  transition: width 0.2s ease;
+}
+
+.progress-label {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.control-block { margin-bottom: 22px; }
+.control-block:last-child { margin-bottom: 0; }
+
+.control-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.control-label-row label {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.05rem;
+}
+
+.slider-value {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+select {
+  width: 100%;
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--surface);
+  color: var(--ink);
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--burgundy);
+}
+
+.hint {
+  margin: 6px 0 0;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+.ghost-btn {
+  background: none;
+  border: 1px solid var(--rule);
+  color: var(--burgundy);
+  font-size: 0.82rem;
+  padding: 4px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.ghost-btn:hover { border-color: var(--burgundy); }
+
+.page-panel {
+  min-height: 160px;
+  padding: 24px 22px;
+  background: repeating-linear-gradient(
+    var(--surface),
+    var(--surface) 31px,
+    var(--rule) 32px
+  );
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  margin-bottom: 22px;
+}
+
+.page-text {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.15rem;
+  line-height: 32px;
+  margin: 0;
+  color: var(--ink);
+}
+
+.transport {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+  padding: 8px;
+}
+
+.icon-btn:hover { color: var(--burgundy); }
+
+.play-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  background: var(--burgundy);
+  color: var(--surface);
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-btn:hover { background: var(--burgundy-dark); }
+
+.status-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.footnote {
+  text-align: center;
+  color: var(--burgundy);
+  font-size: 0.9rem;
+}
+
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+.dropzone:focus-within {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progress-fill, .book-progress-fill, .dropzone { transition: none; }
+}

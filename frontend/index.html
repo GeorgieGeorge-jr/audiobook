@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aloud — a book that reads itself to you</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="page">
+
+  <header class="hero">
+    <h1>Aloud</h1>
+    <p class="hero-sub">Upload a book. Pick a voice. Let it read to you, with feeling.</p>
+  </header>
+
+  <section class="card upload-card" id="upload-card">
+    <label class="dropzone" id="dropzone" for="file-input">
+      <span class="dropzone-title" id="dropzone-title">Drop a PDF or EPUB here, or tap to choose one</span>
+      <span class="dropzone-sub" id="dropzone-sub">Large books are fine — it's read in chunks behind the scenes.</span>
+      <input type="file" id="file-input" accept=".pdf,.epub" hidden />
+    </label>
+    <div class="progress-row" id="extract-progress" hidden>
+      <div class="progress-track"><div class="progress-fill" id="extract-progress-fill"></div></div>
+      <span class="progress-label" id="extract-progress-label"></span>
+    </div>
+  </section>
+
+  <section class="card controls-card" id="controls-card" hidden>
+    <div class="control-block">
+      <div class="control-label-row">
+        <label for="voice-select">Voice</label>
+        <button class="ghost-btn" id="preview-voice-btn" type="button">Preview</button>
+      </div>
+      <select id="voice-select"></select>
+      <p class="hint" id="voice-hint">Loading voices…</p>
+    </div>
+
+    <div class="control-block">
+      <div class="control-label-row">
+        <label for="style-slider">Emotion</label>
+        <span class="slider-value" id="style-value">60%</span>
+      </div>
+      <input type="range" id="style-slider" min="0" max="100" value="60" />
+      <p class="hint">Higher lets the delivery swing more with the text's mood.</p>
+    </div>
+
+    <div class="control-block">
+      <div class="control-label-row">
+        <label for="stability-slider">Steadiness</label>
+        <span class="slider-value" id="stability-value">35%</span>
+      </div>
+      <input type="range" id="stability-slider" min="0" max="100" value="35" />
+      <p class="hint">Higher keeps the voice more consistent from line to line.</p>
+    </div>
+  </section>
+
+  <section class="card reader-card" id="reader-card" hidden>
+    <div class="page-panel">
+      <p class="page-text" id="page-text">Ready when you are.</p>
+    </div>
+
+    <div class="transport">
+      <button class="icon-btn" id="prev-btn" title="Previous chunk" aria-label="Previous chunk">⏮</button>
+      <button class="play-btn" id="play-btn" title="Play" aria-label="Play">▶</button>
+      <button class="icon-btn" id="next-btn" title="Next chunk" aria-label="Next chunk">⏭</button>
+    </div>
+
+    <div class="status-row">
+      <span id="status-label">—</span>
+      <div class="book-progress-track"><div class="book-progress-fill" id="book-progress-fill"></div></div>
+    </div>
+  </section>
+
+  <p class="footnote" id="error-note" hidden></p>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
